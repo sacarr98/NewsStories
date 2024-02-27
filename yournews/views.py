@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Profile
 
 
 def home(request):
@@ -6,4 +7,6 @@ def home(request):
 
 
 def profile_list(request):
-    return render(request, 'profile_list.html')
+    profiles = Profile.objects.exclude(user=request.user)
+
+    return render(request, 'profile_list.html', {"profiles":profiles})
