@@ -7,7 +7,10 @@
             <h1>Hello</h1>
             {% for newspost in news %}
                 <div class="alert alert-primary" role="alert">
-                    {{ newspost }}
+                    {{ newspost.body }}
+                    <small class="text-muted">
+                        {{ newspost.created_at }} By {{ newspost.user.username }}
+                    </small>
                 </div><br/>
             {% endfor %}
         </div>
