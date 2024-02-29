@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Profile
+from .models import Profile, News
 
 
 def home(request):
-    return render(request, 'home.html', {})
+    if request.user.is_authenticated:
+        news = News.objects.all().order_by("-created_at")
+
+    return render(request, 'home.html', {"news":news})
 
 
 def profile_list(request):
@@ -34,7 +37,7 @@ def profile(request, pk):
                 current_user_profile.follows.add(profile)
             # Save changes to profile
             current_user_profile.save()
-            
+
     else:
         messages.success(request, ("Please log in to view this page"))
         return redirect('home')

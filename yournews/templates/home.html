@@ -2,4 +2,9 @@
 
 {% block content %}
 <h1>Hello</h1>
+    {% for newspost in news %}
+        <div class="alert alert-primary" role="alert">
+            {{ newspost }}
+        </div><br/>
+    {% endfor %}
 {% endblock %}
