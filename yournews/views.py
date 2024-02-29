@@ -1,13 +1,25 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Profile, News
+from .forms import NewsForm
 
 
 def home(request):
     if request.user.is_authenticated:
+        form = NewsForm(request.POST or None)
+        if request.method == "POST":
+            if form.is_valid():
+                news = form.save(commit=False)
+                news.user = request.user
+                news.save()
+                messages.success(request, ("Your Post Has Been Shared"))
+                return redirect('home')
+        
         news = News.objects.all().order_by("-created_at")
-
-    return render(request, 'home.html', {"news":news})
+        return render(request, 'home.html', {"news":news, "form":form})
+    else:
+        news = News.objects.all().order_by("-created_at")
+        return render(request, 'home.html', {"news":news})
 
 
 def profile_list(request):
@@ -23,7 +35,7 @@ def profile_list(request):
 def profile(request, pk):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user_id=pk)
-        news = News.objects.filter(user_id=pk)
+        news = News.objects.filter(user_id=pk).order_by("-created_at")
 
         # form
         if request.method == "POST":
