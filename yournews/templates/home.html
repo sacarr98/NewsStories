@@ -8,8 +8,9 @@
             {% for newspost in news %}
                 <div class="alert alert-primary" role="alert">
                     {{ newspost.body }}
+                    <br/>
                     <small class="text-muted">
-                        {{ newspost.created_at }} By {{ newspost.user.username }}
+                        {{ newspost.created_at }} By @{{ newspost.user.username }}
                     </small>
                 </div><br/>
             {% endfor %}
@@ -20,7 +21,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-secondary">Post</button>
+                    <button type="submit" class="btn btn-secondary">Share</button>
                  </form>
             {% endif %}
         </div>

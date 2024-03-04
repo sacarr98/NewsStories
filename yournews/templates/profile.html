@@ -12,7 +12,11 @@
                 {% if news %}
                     {% for newspost in news %}
                         <div class="alert alert-primary" role="alert">
-                            {{ newspost }}
+                            {{ newspost.body }}
+                            <br/>
+                            <small class="text-muted">
+                                {{ newspost.created_at }} By @{{ newspost.user.username }}
+                            </small>
                         </div><br/>
                     {% endfor %}
                 {% endif %}
