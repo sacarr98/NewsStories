@@ -60,6 +60,10 @@
                     {% endif %}
                 </form>
                 <br/>
+                <!--Check for logged in user-->
+                {% if request.user.id == profile.user.id %}
+                    <a href = "{% url 'update_user' %}" class = "btn btn-secondary">Update Your Profile</a>
+                {% endif %}
             </div>
         </div>
     </div>
