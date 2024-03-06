@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Profile, News
 from .forms import NewsForm, SignUpForm, ProfilePicForm
@@ -122,3 +122,16 @@ def update_user(request):
     
     else:
         messages.success(request, ("Please Log in To View This Page"))
+
+
+def news_like(request, pk):
+    if request.user.is_authenticated:
+        news = get_object_or_404(News, id=pk)
+        if news.likes.filter(id=request.user.id)
+            news.likes.remove(request.user)
+        else:
+            news.likes.add(request.user)
+        return redirect('home')
+    else:
+        messages.success(request, ("Please log in to use this action"))
+        return redirect('home')
