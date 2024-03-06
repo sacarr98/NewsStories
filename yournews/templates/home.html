@@ -22,7 +22,7 @@
                                 <br/>
                                 <small class="text-muted">
                                 {{ newspost.created_at }} By @{{ newspost.user.username }}
-                                - {{ newspost.number_of_likes }} Likes
+                                - {{ newspost.number_of_likes }} Likes - <a href="{% url 'news_like' newspost.id %}">Like</a>
                                 </small>
                             </div>
                         </div>
