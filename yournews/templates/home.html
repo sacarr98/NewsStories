@@ -1,17 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class = "container text-center">
     <div class = "row">
         <div class = "col-8">
-            <h1>Hello</h1>
+            <h1>Your News:</h1>
             {% for newspost in news %}
                 <div class="alert alert-primary" role="alert">
-                    {{ newspost.body }}
-                    <br/>
-                    <small class="text-muted">
-                        {{ newspost.created_at }} By @{{ newspost.user.username }}
-                    </small>
+                    <div class="containter">
+                        <div class="row">
+                            <div class="col-2">
+                                {% if newspost.user.profile.profile_image %}
+                                <img src="{{ newspost.user.profile.profile_image.url }}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                {% else %}
+                                <img src="{% static 'images/default_profile_pic.png' %}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                {% endif %}
+                            </div>
+                            <div class="col-8">
+                                {{ newspost.body }}
+                                <br/>
+                                <small class="text-muted">
+                                {{ newspost.created_at }} By @{{ newspost.user.username }}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
                 </div><br/>
             {% endfor %}
         </div>
