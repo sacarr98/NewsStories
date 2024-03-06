@@ -127,7 +127,7 @@ def update_user(request):
 def news_like(request, pk):
     if request.user.is_authenticated:
         news = get_object_or_404(News, id=pk)
-        if news.likes.filter(id=request.user.id)
+        if news.likes.filter(id=request.user.id):
             news.likes.remove(request.user)
         else:
             news.likes.add(request.user)
