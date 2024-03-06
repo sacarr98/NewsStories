@@ -12,19 +12,29 @@
                 {% if news %}
                     {% for newspost in news %}
                         <div class="alert alert-primary" role="alert">
+                            <div class="containter">
+                                <div class="row">
+                                    <div class="col-1">
+                                        IMAGE
+                                    </div>
+                                    <div class="col-10">
                             {{ newspost.body }}
                             <br/>
                             <small class="text-muted">
                                 {{ newspost.created_at }} By @{{ newspost.user.username }}
                             </small>
+                                    </div>
+                                </div>
+                            </div>
                         </div><br/>
                     {% endfor %}
                 {% endif %}
             </div>
             <div class = "col-4">
                 {% if profile.profile_image %}
-                    <img src="{{ profile.profile_image.url }}">
+                    <img src="{{ profile.profile_image.url }}" width="200" height="200" class="rounded-circle">
                 {% endif %}
+                <br/><br/>
                 <div class="card">
                     <div class="card-header">
                   Follows
