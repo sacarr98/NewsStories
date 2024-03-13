@@ -50,7 +50,13 @@
                 {% endif %}
                 <br/><br/>
                 {% if profile.website_link %}
-                    {{ profile.website_link }}
+                    <a href="{{ profile.website_link }}"></a>
+                {% endif %}
+                {% if profile.facebook_link %}
+                    <a href="{{ profile.facebook_link }}"></a>
+                {% endif %}
+                {% if profile.instagram_link %}
+                    <a href="{{ profile.instagram_link }}"></a>
                 {% endif %}
                 <br/><br/>
                 <div class="card">
