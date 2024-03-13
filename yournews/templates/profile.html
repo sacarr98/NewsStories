@@ -49,6 +49,10 @@
                     <img src="{{ profile.profile_image.url }}" width="200" height="200" class="rounded-circle">
                 {% endif %}
                 <br/><br/>
+                {% if profile.website_link %}
+                    {{ profile.website_link }}
+                {% endif %}
+                <br/><br/>
                 <div class="card">
                     <div class="card-header">
                   Follows
