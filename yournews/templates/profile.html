@@ -61,6 +61,10 @@
                     <a href="{{ profile.instagram_link }}" target="new"><i class="fa-brands fa-instagram"></i></a>
                 {% endif %}
                 <br/><br/>
+                {% if profile.profile_bio %}
+                    <p align="justify">{{ profile.profile_bio }}</p>
+                {% endif %}
+                <br/><br/>
                 <div class="card">
                     <div class="card-header">
                   Follows
