@@ -135,3 +135,13 @@ def news_like(request, pk):
     else:
         messages.success(request, ("Please log in to use this action"))
         return redirect('home')
+
+
+def news_display(request, pk):
+    news = get_object_or_404(News, id=pk)
+    if news:
+        return render(request, "news_display.html", {'news':news})
+
+    else:
+        messages.success(request, ("News story not available"))
+        return redirect('home')

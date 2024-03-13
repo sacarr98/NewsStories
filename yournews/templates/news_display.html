@@ -6,7 +6,6 @@
     <div class = "row">
         <div class = "col-8">
             <h1>Your News:</h1>
-            {% for newspost in news %}
                 <div class="alert alert-primary" role="alert">
                     <div class="containter">
                         <div class="row">
@@ -32,23 +31,14 @@
                                     <i class="fa fa-heart-o"></i>
                                 </a>
                                 {% endif %}
-                                {{ news.id }}
                                 </small>
                             </div>
                         </div>
                     </div>
                 </div><br/>
-            {% endfor %}
         </div>
         <div class="col-4">
             <br/><br/>
-            {% if form %}
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-secondary">Share</button>
-                 </form>
-            {% endif %}
         </div>
     </div>
 </div>
