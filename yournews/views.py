@@ -131,7 +131,7 @@ def news_like(request, pk):
             news.likes.remove(request.user)
         else:
             news.likes.add(request.user)
-        return redirect('home')
+        return redirect(request.META.get("HTTP_REFERER"))
     else:
         messages.success(request, ("Please log in to use this action"))
         return redirect('home')
