@@ -27,6 +27,10 @@
                                 {% else %}
                                 <a href="{% url 'news_like' news.id %}"><i class="fa fa-heart-o"></i></a>
                                 {% endif %}
+                                {% if request.user.username == news.user.username %}
+                                    &nbsp; &nbsp;
+                                    <a href="{% url 'delete_post' news.id %}"><i class="fa-solid fa-trash" style="color:gray"></i></a>
+                                {% endif %}
                                 </small>
                             </div>
                         </div>
