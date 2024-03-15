@@ -161,3 +161,11 @@ def news_display(request, pk):
     else:
         messages.success(request, ("News story not available"))
         return redirect('home')
+
+
+def delete_post(request, pk):
+    if request.user.is_authenticated:
+        news = get_object_or_404(News, id=pk)
+    else:
+        messages.success(request, ("Please log in to use this action"))
+        return redirect(request.META.get("HTTP_REFERER"))

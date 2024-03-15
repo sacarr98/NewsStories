@@ -12,4 +12,5 @@ urlpatterns = [
     path('news_like/<int:pk>', views.news_like, name='news_like'),
     path('news_display/<int:pk>', views.news_display, name='news_display'),
     path('unfollow/<int:pk>', views.unfollow, name='unfollow'),
+    path('delete_post/<int:pk>', views.delete_post, name='delete_post'),
 ]
