@@ -181,15 +181,23 @@ def delete_post(request, pk):
 
 def edit_post(request, pk):
     if request.user.is_authenticated:
+        # find selected post
         news = get_object_or_404(News, id=pk)
-        # check if post belongs to user
+    # check if post belongs to user
         if request.user.username == news.user.username:
-            # edit post
-            return render(request, "edit_post.html", {'form':form, 'news':news})
-            messages.success(request, ("Post updated"))
-            return redirect(request.META.get("HTTP_REFERER"))
+            form = NewsForm(request.POST or None, instance=news)
+            if request.method == "POST":
+                if form.is_valid():
+                    news = form.save(commit=False)
+                    news.user = request.user
+                    news.save()
+                    messages.success(request, ("Your Post Has Been Updated"))
+                    return redirect('home')
+            else:
+                return render(request, "edit_post.html", {'form':form, 'news':news})
         else:
-            return redirect(request.META.get("HTTP_REFERER"))
+            messages.success(request, ("You can only edit your own posts"))
+            return redirect('home')
     else:
         messages.success(request, ("Please log in to use this action"))
         return redirect('home')

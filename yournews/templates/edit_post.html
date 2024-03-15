@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class = "container text-center">
+    <div class = "row">
+        <div class = "col-8">
+                <div class="alert alert-primary" role="alert">
+                    <div class="containter">
+                        <div class="row">
+                            <div class="col-2">
+                                {% if news.user.profile.profile_image %}
+                                <img src="{{ news.user.profile.profile_image.url }}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                {% else %}
+                                <img src="{% static 'images/default_profile_pic.png' %}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                {% endif %}
+                            </div>
+                            <div class="col-8">
+                                {{ news.body }}
+                                <br/>
+                                <small class="text-muted">
+                                {{ news.created_at }} By @{{ news.user.username }}
+                                &nbsp; &nbsp;
+                                {{ news.number_of_likes }} 
+                                {% if user in news.likes.all %}
+                                <a href="{% url 'news_like' news.id %}"><i class="fa-solid fa-heart"></i></a>
+                                {% else %}
+                                <a href="{% url 'news_like' news.id %}"><i class="fa fa-heart-o"></i></a>
+                                {% endif %}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div><br/>
+                <br/><br/>
+                {% if form %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-secondary">Share</button>
+                     </form>
+                {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

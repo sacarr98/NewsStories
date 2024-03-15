@@ -40,6 +40,10 @@
                                             &nbsp; &nbsp;
                                             <a href="{% url 'delete_post' newspost.id %}"><i class="fa-solid fa-trash" style="color:gray"></i></a>
                                         {% endif %}
+                                        {% if request.user.username == profile.user.username %}
+                                            &nbsp; &nbsp;
+                                            <a href="{% url 'edit_post' newspost.id %}"> <i class="fa-regular fa-pen-to-square" style="color:gray"></i></a>
+                                        {% endif %}
                                         </small>
                                     </div>
                                 </div>
