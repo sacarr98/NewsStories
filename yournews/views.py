@@ -36,6 +36,22 @@ def profile_list(request):
     return render(request, 'profile_list.html', {"profiles":profiles})
 
 
+def unfollow(request, pk):
+    if request.user.is_authenticated:
+        # Find profile to unfollow
+        profile = Profile.objects.get(user_id=pk)
+        # unfollow selected user
+        request.user.profile.follows.remove(profile)
+        # save changes to followers
+        request.user.profile.save
+        # unfollow message
+        messages.success(request, (f"{profile.user.username} has been unfollowed"))
+        return redirect(request.META.get("HTTP_REFERER"))
+    else:
+        messages.success(request, ("Please log in to view this page"))
+        return redirect('home')
+
+
 def profile(request, pk):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user_id=pk)
