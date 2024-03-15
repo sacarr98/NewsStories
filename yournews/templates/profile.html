@@ -36,8 +36,10 @@
                                         {% endif %}
                                         &nbsp; &nbsp;
                                         <a href="{% url 'news_display' newspost.id %}"><i class="fa-solid fa-share" style="color:gray"></i></a>
-                                        &nbsp; &nbsp;
-                                        <a href="{% url 'delete_post' newspost.id %}"><i class="fa-solid fa-trash" style="color:gray"></i></a>
+                                        {% if request.user.username == profile.user.username %}
+                                            &nbsp; &nbsp;
+                                            <a href="{% url 'delete_post' newspost.id %}"><i class="fa-solid fa-trash" style="color:gray"></i></a>
+                                        {% endif %}
                                         </small>
                                     </div>
                                 </div>

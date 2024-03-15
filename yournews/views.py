@@ -166,6 +166,16 @@ def news_display(request, pk):
 def delete_post(request, pk):
     if request.user.is_authenticated:
         news = get_object_or_404(News, id=pk)
+        # check if post belongs to user
+        if request.user.username == news.user.username:
+            # delete post
+            news.delete()
+            messages.success(request, ("Post successfully deleted"))
+            return redirect(request.META.get("HTTP_REFERER"))
+        else:
+            return redirect(request.META.get("HTTP_REFERER"))
+
+
     else:
         messages.success(request, ("Please log in to use this action"))
         return redirect(request.META.get("HTTP_REFERER"))
