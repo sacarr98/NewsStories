@@ -205,8 +205,11 @@ def edit_post(request, pk):
 
 def search(request):
     if request.method == "POST":
+        # get value entered into form field
         search = request.POST['search']
-        return render(request, 'search.html', {'search':search})
+        # search database for value entered
+        searched = News.objects.filter(body__contains = search)
+        return render(request, 'search.html', {'search':search, 'searched':searched})
 
     else:
         return render(request, 'search.html', {})
