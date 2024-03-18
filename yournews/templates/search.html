@@ -2,9 +2,6 @@
 {% load static %}
 
 {% block content %}
-
-<h1>Search News:</h1>
-
 <form method="POST">
     {% csrf_token %}
     <input type="input" class="form-control" placeholder="Search News" name="search">

@@ -213,3 +213,15 @@ def search(request):
 
     else:
         return render(request, 'search.html', {})
+
+
+def search_user(request):
+    if request.method == "POST":
+        # get value entered into form field
+        search = request.POST['search']
+        # search database for value entered
+        searched = News.objects.filter(body__contains = search)
+        return render(request, 'search_user.html', {'search':search, 'searched':searched})
+
+    else:
+        return render(request, 'search_user.html', {})
