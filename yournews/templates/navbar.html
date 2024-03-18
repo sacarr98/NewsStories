@@ -32,7 +32,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{% url 'search' %}">Search News</a></li>
-              <li><a class="dropdown-item" href="#">Search Users</a></li>
+              <li><a class="dropdown-item" href="{% url 'search_user' %}">Search Users</a></li>
             </ul>
         </ul>
         {% if user.is_authenticated %}
