@@ -206,7 +206,7 @@ def edit_post(request, pk):
 def search(request):
     if request.method == "POST":
         search = request.POST['search']
-        return render(request, 'search.html', {})
+        return render(request, 'search.html', {'search':search})
 
     else:
         return render(request, 'search.html', {})
