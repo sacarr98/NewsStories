@@ -14,4 +14,5 @@ urlpatterns = [
     path('unfollow/<int:pk>', views.unfollow, name='unfollow'),
     path('delete_post/<int:pk>', views.delete_post, name='delete_post'),
     path('edit_post/<int:pk>', views.edit_post, name='edit_post'),
+    path('search/', views.search, name='search'),
 ]

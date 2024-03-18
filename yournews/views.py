@@ -201,3 +201,12 @@ def edit_post(request, pk):
     else:
         messages.success(request, ("Please log in to use this action"))
         return redirect('home')
+
+
+def search(request):
+    if request.method == "POST":
+        search = request.POST['search']
+        return render(request, 'search.html', {})
+
+    else:
+        return render(request, 'search.html', {})
