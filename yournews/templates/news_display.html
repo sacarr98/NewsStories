@@ -63,10 +63,10 @@
                         </div>
                     </div><br/>
                 {% endfor %}
-                    {% if not post.comments.all %}
+                    {% if not news.comments.all %}
                     <p>No comments</p>
                     {% else %}
-                        {% for comment in post.comments.all %}
+                        {% for comment in news.comments.all %}
                             {{ comment.commenter }}
                         <br/>
                             {{ comment.comment_body }}
