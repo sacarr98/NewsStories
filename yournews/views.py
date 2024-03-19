@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import Profile, News
-from .forms import NewsForm, SignUpForm, ProfilePicForm
+from .models import Profile, News, Comment
+from .forms import NewsForm, SignUpForm, ProfilePicForm, CommentForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
@@ -155,9 +155,26 @@ def news_like(request, pk):
 
 def news_display(request, pk):
     news = get_object_or_404(News, id=pk)
+    #comment = get_object_or_404(Comment, id=pk)
     if news:
         return render(request, "news_display.html", {'news':news})
-
+        if comment:
+            return render(request, "news_display.html", {'news':news, 'comment':comment})
+            if request.user.is_authenticated:
+                form = CommentForm(request.POST or None)
+                if request.method == "POST":
+                    if form.is_valid():
+                        comment = form.save(commit=False)
+                        news.comment.user = request.user
+                        news.comment.save()
+                        messages.success(request, ("Your Comment Has Been Shared"))
+                        return redirect('home')
+                
+                    comment = Comment.objects.all().order_by("-created_at")
+                    return redirect(request.META.get("HTTP_REFERER"))
+            else:
+                news = News.objects.all().order_by("-created_at")
+                return render(request, 'home.html', {"news":news})
     else:
         messages.success(request, ("News story not available"))
         return redirect('home')

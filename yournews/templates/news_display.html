@@ -41,9 +41,14 @@
                         </div>
                     </div>
                 </div><br/>
-        </div>
-        <div class="col-4">
-            <br/><br/>
+                <p>here</p>
+                {% if form %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-secondary">Comment</button>
+                 </form>
+                {% endif %}
         </div>
     </div>
 </div>

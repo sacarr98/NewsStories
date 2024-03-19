@@ -1,5 +1,5 @@
 from django import forms
-from .models import News, Profile
+from .models import News, Profile, Comment
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -39,6 +39,17 @@ class NewsForm(forms.ModelForm):
     class Meta:
         model = News
         exclude = ("user", "likes",)
+
+
+# Comment Form
+class CommentForm(forms.ModelForm):
+    comment = forms.CharField(required=False, 
+        label="", max_length=100, 
+        widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Add Comment'}))
+
+    class Meta:
+        model = Comment
+        exclude = ("user",)
 
 
 class SignUpForm(UserCreationForm):
