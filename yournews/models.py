@@ -31,14 +31,14 @@ class News(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(News, related_name="comments", on_delete=models.CASCADE)
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
-    comment = models.TextField()
+    comment_body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["created_on"]
 
     def __str__(self):
-        return f"Comment {self.comment} by {self.commenter}"
+        return f"Comment {self.comment_body} by {self.commenter}"
 
 
 

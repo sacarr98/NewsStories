@@ -63,12 +63,15 @@
                         </div>
                     </div><br/>
                 {% endfor %}
-                {% if form %}
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-secondary">Comment</button>
-                 </form>
+                    {% if not post.comments.all %}
+                    <p>No comments</p>
+                    {% else %}
+                        {% for comment in post.comments.all %}
+                            {{ comment.commenter }}
+                        <br/>
+                            {{ comment.comment_body }}
+                        {% endfor %}
+
                 {% endif %}
         </div>
     </div>
