@@ -19,7 +19,7 @@ class ProfilePicForm(forms.ModelForm):
 
 class NewsForm(forms.ModelForm):
     title = forms.CharField(required=False,
-        widget=forms.widgets.Textarea(
+        widget=forms.widgets.TextInput(
             attrs={
                 "placeholder":"News Title",
                 "class":"form-control",
