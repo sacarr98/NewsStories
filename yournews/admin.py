@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group, User
-from .models import Profile, News
+from .models import Profile, News, Comment
 
 
 # unregister groups
@@ -26,3 +26,6 @@ admin.site.register(User, UserAdmin)
 
 # Register Posts
 admin.site.register(News)
+
+# Register Comments
+admin.site.register(Comment)

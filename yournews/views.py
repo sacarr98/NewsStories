@@ -154,30 +154,31 @@ def news_like(request, pk):
 
 
 def news_display(request, pk):
-    news = get_object_or_404(News, id=pk)
-    #comment = get_object_or_404(Comment, id=pk)
-    if news:
-        return render(request, "news_display.html", {'news':news})
-        if comment:
-            return render(request, "news_display.html", {'news':news, 'comment':comment})
-            if request.user.is_authenticated:
-                form = CommentForm(request.POST or None)
-                if request.method == "POST":
-                    if form.is_valid():
-                        comment = form.save(commit=False)
-                        news.comment.user = request.user
-                        news.comment.save()
-                        messages.success(request, ("Your Comment Has Been Shared"))
-                        return redirect('home')
-                
-                    comment = Comment.objects.all().order_by("-created_at")
-                    return redirect(request.META.get("HTTP_REFERER"))
-            else:
-                news = News.objects.all().order_by("-created_at")
-                return render(request, 'home.html', {"news":news})
+    if request.user.is_authenticated:
+        news = get_object_or_404(News, id=pk)
     else:
-        messages.success(request, ("News story not available"))
-        return redirect('home')
+        messages.success(request, ("Please log in to use this action"))
+        return render(request, 'home.html', {"news":news})
+
+
+def comment_display(request, pk):
+    if request.user.is_authenticated:
+        news = get_object_or_404(News, id=pk)
+        form = CommentForm(request.POST or None)
+        if request.method == "POST":
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.commenter = request.user
+                comment.save()
+                messages.success(request, ("Your Post Has Been Shared"))
+                return redirect('news_display')
+        
+        comment = Comment.objects.all().order_by("-created_on")
+        return render(request, 'news_display.html', {"news":news, "form":form, "comment":comment})
+    else:
+        news = News.objects.all().order_by("-created_on")
+        return render(request, 'home.html', {"news":news})
+        
 
 
 def delete_post(request, pk):

@@ -41,7 +41,28 @@
                         </div>
                     </div>
                 </div><br/>
-                <p>here</p>
+                {% for comments in comment %}
+                    <div class="alert alert-primary" role="alert">
+                        <div class="containter">
+                            <div class="row">
+                                <div class="col-2">
+                                    {% if commenter.profile.profile_image %}
+                                    <img src="{{ comments.commenter.profile.profile_image.url }}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                    {% else %}
+                                    <img src="{% static 'images/default_profile_pic.png' %}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                    {% endif %}
+                                </div>
+                                <div class="col-8">
+                                    {{ comments.comment }}
+                                    <br/>
+                                    <small class="text-muted">
+                                    {{ comments.created_on }} By @{{ comments.commenter }}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br/>
+                {% endfor %}
                 {% if form %}
                 <form method="POST">
                     {% csrf_token %}
