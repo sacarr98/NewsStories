@@ -18,6 +18,15 @@ class ProfilePicForm(forms.ModelForm):
 
 
 class NewsForm(forms.ModelForm):
+    title = forms.CharField(required=False,
+        widget=forms.widgets.Textarea(
+            attrs={
+                "placeholder":"News Title",
+                "class":"form-control",
+            }
+        ),
+        label="",
+        )
     body = forms.CharField(required=True,
         widget=forms.widgets.Textarea(
             attrs={

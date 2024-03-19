@@ -9,6 +9,7 @@ class News(models.Model):
         User, related_name="news",
         on_delete=models.DO_NOTHING
     )
+    title = models.CharField(max_length=100, null=True, blank=True)
     body = models.CharField(max_length=600)
     created_at = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name="news_like", blank=True)
@@ -21,6 +22,7 @@ class News(models.Model):
         return(
             f"{self.user} "
             f"({self.created_at:%Y-%m-%d %H:%M}): "
+            f"{self.title}"
             f"{self.body}"
         )
 
