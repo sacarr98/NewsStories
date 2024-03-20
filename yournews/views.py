@@ -157,6 +157,33 @@ def news_display(request, pk):
     news = get_object_or_404(News, id=pk)
     if news:
         return render(request, "news_display.html", {'news':news})
+    
+        comments = post.comments.all().order_by("-created_on")
+    comment_count = post.comments.filter(approved=True).count()
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment shared'
+            )
+    
+        comment_form = CommentForm()
+        return render(
+            request,
+            "news_display.html",
+            {
+                "news": news,
+                "comments": comments,
+                "comment_count": comment_count,
+                "comment_form": comment_form
+            },
+        )
+
     else:
         messages.success(request, ("That post does not exist"))
         return redirect('home')	

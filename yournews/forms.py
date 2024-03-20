@@ -42,6 +42,12 @@ class NewsForm(forms.ModelForm):
 
 
 # Comment Form
+#class CommentForm(forms.ModelForm):
+#    class Meta:
+#        model = Comment
+#        fields = ('body',)
+
+
 class CommentForm(forms.ModelForm):
     comment = forms.CharField(required=False, 
         label="", max_length=100, 
