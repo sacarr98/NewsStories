@@ -48,50 +48,50 @@
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <h4>Comments:</h4>
+            {% for comment in comments %}
             <div class="alert alert-info" role="alert">
                 <div class="containter">
                     <div class="row">
                         <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-                        {% for comment in comments %}
-                        <div class="col-2">
-                            {% if comment.commenter.profile.profile_image %}
-                            <img src="{{ comment.commenter.profile.profile_image.url }}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
-                            {% else %}
-                            <img src="{% static 'images/default_profile_pic.png' %}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
-                            {% endif %}
-                        </div>
-                        <div class="col-8">
-                            <div id="comment{{ comment.id }}">
-                                {{ comment.comment_body | linebreaks }}
+                            <div class="col-2">
+                                {% if comment.commenter.profile.profile_image %}
+                                <img src="{{ comment.commenter.profile.profile_image.url }}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                {% else %}
+                                <img src="{% static 'images/default_profile_pic.png' %}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                {% endif %}
                             </div>
-                            <small class="text-muted">
-                                {{ comment.commenter }} &nbsp; {{ comment.created_on }}
-                            </small>
-                            {% if user.is_authenticated and comment.author == user %}
-                            <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-                            <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
-                            {% endif %}
-                        </div>
-                        <!-- Our for loop ends here -->
-                        {% endfor %}
+                            <div class="col-8">
+                                <div id="comment{{ comment.id }}">
+                                    {{ comment.comment_body | linebreaks }}
+                                </div>
+                                <small class="text-muted">
+                                    {{ comment.commenter }} &nbsp; {{ comment.created_on }}
+                                </small>
+                                {% if user.is_authenticated and comment.author == user %}
+                                <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                                <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                                {% endif %}
+                            </div>
                     </div>
                 </div>
-            </div>
+            </div></br>
+            {% endfor %}
                 <!-- Creating New Comments -->
-    <div class="col-md-4 card mb-4  mt-3 ">
-        <div class="card-body">
-            {% if user.is_authenticated %}
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form id="CommentForm" method="post" style="margin-top: 1.3em;">
-                    {% csrf_token %}
-                    {{ comment_form | crispy }}
-                    
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-            {% else %}
-                <p>Log in to leave a comment</p>
-            {% endif %}
+    <div class = "container text-center">
+        <div class = "row">
+            <div class = "col-12">
+                {% if user.is_authenticated %}
+                    <form id="CommentForm" method="post">
+                        <div class="mb-3">
+                            <label for="CommentForm" class="form-label">Leave a Comment</label>
+                            {% csrf_token %}
+                            {{ comment_form | crispy }}
+                        </div>
+                    </form>
+                {% else %}
+                    <p>Log in to leave a comment</p>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

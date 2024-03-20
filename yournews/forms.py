@@ -43,6 +43,9 @@ class NewsForm(forms.ModelForm):
 
 # Comment Form
 class CommentForm(forms.ModelForm):
+    comment_body = forms.CharField(required=False, 
+        label="", max_length=100, 
+        widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Add Comment'}))
     class Meta:
         model = Comment
         fields = ('comment_body',)
