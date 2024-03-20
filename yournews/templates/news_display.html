@@ -40,51 +40,48 @@
                             </div>
                         </div>
                     </div>
-                </div><br/>
-                {% for comments in comment %}
-                    <div class="alert alert-primary" role="alert">
-                        <div class="containter">
-                            <div class="row">
-                                <div class="col-2">
-                                    {% if commenter.profile.profile_image %}
-                                    <img src="{{ comments.commenter.profile.profile_image.url }}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
-                                    {% else %}
-                                    <img src="{% static 'images/default_profile_pic.png' %}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
-                                    {% endif %}
-                                </div>
-                                <div class="col-8">
-                                    {{ comments.comment }}
-                                    <br/>
-                                    <small class="text-muted">
-                                    {{ comments.created_on }} By @{{ comments.commenter }}
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div><br/>
-                {% endfor %}
-                    {% if not news.comments.all %}
-                    <p>No comments</p>
-                    {% else %}
-                        {% for comment in news.comments.all %}
-                            {{ comment.commenter }}
-                        <br/>
-                            {{ comment.comment_body }}
-                        {% endfor %}
-
-                {% endif %}
-
-                {% if user.is_authenticated %}
-                    <p>add comment</p>
-                    <div class="form-group">
-                        <form method="POST">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <button class="btn btn-secondary">Comment</button>
-                        </form>
+                </div>
+        </div>
+    </div>
+    <!-- Displaying Comments -->
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 ">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                {% for comment in comments %}
+                <div
+                    class="p-2">
+                    <p class="font-weight-bold">
+                        {{ comment.author }}
+                        <span class="font-weight-normal">
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    <div id="comment{{ comment.id }}">
+                        {{ comment.body | linebreaks }}
                     </div>
-
-                {% end if %}
+                    {% if user.is_authenticated and comment.author == user %}
+                    <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                    <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                    {% endif %}
+                </div>
+                <!-- Our for loop ends here -->
+                {% endfor %}
+                <!-- Creating New Comments -->
+    <div class="col-md-4 card mb-4  mt-3 ">
+        <div class="card-body">
+            {% if user.is_authenticated %}
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form id="commentForm" method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy}}
+                    {% csrf_token %}
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+            {% else %}
+                <p>Log in to leave a comment</p>
+            {% endif %}
         </div>
     </div>
 </div>
