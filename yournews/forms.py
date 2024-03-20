@@ -42,20 +42,20 @@ class NewsForm(forms.ModelForm):
 
 
 # Comment Form
-#class CommentForm(forms.ModelForm):
-#    class Meta:
-#        model = Comment
-#        fields = ('body',)
-
-
 class CommentForm(forms.ModelForm):
-    comment = forms.CharField(required=False, 
-        label="", max_length=100, 
-        widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Add Comment'}))
-
     class Meta:
         model = Comment
-        exclude = ("post","commenter")
+        fields = ('comment_body',)
+
+
+#class CommentForm(forms.ModelForm):
+#    comment = forms.CharField(required=False, 
+#        label="", max_length=100, 
+#        widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Add Comment'}))
+#
+#    class Meta:
+#        model = Comment
+#        exclude = ("news","commenter")
 
 
 class SignUpForm(UserCreationForm):

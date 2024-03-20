@@ -29,7 +29,7 @@ class News(models.Model):
 
 # Comment Model
 class Comment(models.Model):
-    post = models.ForeignKey(News, related_name="comments", on_delete=models.CASCADE)
+    news = models.ForeignKey(News, related_name="comments", on_delete=models.CASCADE)
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     comment_body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
