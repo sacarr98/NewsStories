@@ -27,6 +27,15 @@ class NewsForm(forms.ModelForm):
         ),
         label="",
         )
+    summary = forms.CharField(required=True,
+        widget=forms.widgets.Textarea(
+            attrs={
+                "placeholder":"Summarise Your News",
+                "class":"form-control",
+            }
+        ),
+        label="",
+        )
     body = forms.CharField(required=True,
         widget=forms.widgets.Textarea(
             attrs={
@@ -49,16 +58,6 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('comment_body',)
-
-
-#class CommentForm(forms.ModelForm):
-#    comment = forms.CharField(required=False, 
-#        label="", max_length=100, 
-#        widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Add Comment'}))
-#
-#    class Meta:
-#        model = Comment
-#        exclude = ("news","commenter")
 
 
 class SignUpForm(UserCreationForm):
