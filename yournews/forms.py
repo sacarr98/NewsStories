@@ -28,7 +28,7 @@ class NewsForm(forms.ModelForm):
         label="",
         )
     summary = forms.CharField(required=True,
-        widget=forms.widgets.Textarea(
+        widget=forms.widgets.TextInput(
             attrs={
                 "placeholder":"Summarise Your News",
                 "class":"form-control",

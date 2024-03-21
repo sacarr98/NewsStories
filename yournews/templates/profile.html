@@ -17,14 +17,14 @@
                                 <div class="row">
                                     <div class="col-2">
                                         {% if profile.profile_image %}
-                                            <img src="{{ profile.profile_image.url }}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                            <img src="{{ profile.profile_image.url }}" width ="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
                                         {% else %}
-                                            <img src="{% static 'images/default_profile_pic.png' %}" width="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
+                                            <img src="{% static 'images/default_profile_pic.png' %}" width ="50" height="50" class="rounded-circle" alt="{{ profile.user.username}}">
                                         {% endif %}
                                     </div>
                                     <div class="col-8">
-                                        <h3>{{ newspost.title }}</h3>
-                                        {{ newspost.body }}
+                                        <h4>{{ newspost.title }}</h4>
+                                        {{ newspost.summary }}
                                         <br/>
                                         <small class="text-muted">
                                         {{ newspost.created_at }} By @{{ newspost.user.username }}
@@ -55,7 +55,7 @@
             </div>
             <div class = "col-4">
                 {% if profile.profile_image %}
-                    <img src="{{ profile.profile_image.url }}" width="200" height="200" class="rounded-circle">
+                    <img src="{{ profile.profile_image.url }}" width="200" height="200" class="rounded-circle img-fluid">
                 {% endif %}
                 <br/><br/>
                 {% if profile.website_link %}
