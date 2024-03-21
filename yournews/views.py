@@ -197,27 +197,7 @@ def news_display(request, pk):
             "comment_count": comment_count,
             "comment_form": comment_form
         },
-    )
-
-
-#def comment_display(request, pk):
-#    if request.user.is_authenticated:
-#        news = get_object_or_404(News, id=pk)
-#        form = CommentForm(request.POST or None)
-#        if request.method == "POST":
-#            if form.is_valid():
-#                comment = form.save(commit=False)
-#                comment.commenter = request.user
-#                comment.save()
-#                messages.success(request, ("Your Post Has Been Shared"))
-#                return redirect('news_display')
-#        
-#        comment = Comment.objects.all().order_by("-created_on")
-#        return render(request, 'news_display.html', {"news":news, "form":form, "comment":comment})
-#    else:
-#        news = News.objects.all().order_by("-created_on")
-#        return render(request, 'home.html', {"news":news})
-        
+    )       
 
 
 def delete_post(request, pk):
@@ -258,6 +238,22 @@ def edit_post(request, pk):
     else:
         messages.success(request, ("Please log in to use this action"))
         return redirect('home')
+
+
+def delete_comment(request, pk):
+    if request.user.is_authenticated:
+        comment = get_object_or_404(Comment, id=pk)
+        # check if comment belongs to user
+        if request.user.username == comment.commenter.username:
+            # delete comment
+            comment.delete()
+            messages.success(request, ("Comment successfully deleted"))
+            return redirect(request.META.get("HTTP_REFERER"))
+        else:
+            return redirect(request.META.get("HTTP_REFERER"))
+    else:
+        messages.success(request, ("Please log in to use this action"))
+        return redirect(request.META.get("HTTP_REFERER"))
 
 
 def search(request):

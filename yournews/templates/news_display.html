@@ -67,9 +67,9 @@
                                 <small class="text-muted">
                                     {{ comment.commenter }} &nbsp; {{ comment.created_on }}
                                 </small>
-                                {% if user.is_authenticated and comment.author == user %}
-                                <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-                                <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                                {% if request.user.username == comment.commenter.username %}
+                                    &nbsp; &nbsp;
+                                    <a href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-trash" style="color:gray"></i></a>
                                 {% endif %}
                             </div>
                     </div>
@@ -83,9 +83,9 @@
                 {% if user.is_authenticated %}
                     <form id="CommentForm" method="post">
                         <div class="mb-3">
-                            <label for="CommentForm" class="form-label">Leave a Comment</label>
                             {% csrf_token %}
                             {{ comment_form | crispy }}
+                            <button type="submit" class="btn btn-secondary">Share</button>
                         </div>
                     </form>
                 {% else %}
