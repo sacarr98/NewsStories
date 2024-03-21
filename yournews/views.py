@@ -26,6 +26,24 @@ def home(request):
         return render(request, 'home.html', {"news":news})
 
 
+def create_news(request):
+    if request.user.is_authenticated:
+        form = NewsForm(request.POST or None)
+        if request.method == "POST":
+            if form.is_valid():
+                news = form.save(commit=False)
+                news.user = request.user
+                news.save()
+                messages.success(request, ("Your Post Has Been Shared"))
+                return redirect('home')
+        
+        news = News.objects.all().order_by("-created_at")
+        return render(request, 'create_news.html', {"news":news, "form":form})
+    else:
+        news = News.objects.all().order_by("-created_at")
+        return render(request, 'create_news.html', {"news":news})
+
+
 def profile_list(request):
     if request.user.is_authenticated:
         profiles = Profile.objects.exclude(user=request.user)
