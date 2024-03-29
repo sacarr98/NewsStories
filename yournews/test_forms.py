@@ -1,5 +1,18 @@
 from django.test import TestCase
-from .forms import CommentForm, NewsForm, SignUpForm
+from django.core.files.uploadedfile import SimpleUploadedFile
+from .forms import CommentForm, ProfilePicForm, NewsForm, SignUpForm
+
+
+class TestProfilePicForm(TestCase):
+    def test_form_is_valid(self):
+        profilepic_form = ProfilePicForm({
+            'profile_image': SimpleUploadedFile('default_profile_pic.png', <file data>), 
+            'profile_bio':'Test bio', 
+            'website_link':'Test website', 
+            'facebook_link':'facebook link', 
+            'instagram_link':'instagram link'
+        })
+        self.assertTrue(profilepic_form.is_valid(), msg="Form is invalid")
 
 
 class TestNewsForm(TestCase):
@@ -58,10 +71,68 @@ class TestSignUpForm(TestCase):
             })
         self.assertTrue(signup_form.is_valid(), msg="Form is invalid")
     
-    def test_form_is_invalid(self):
+    def test_username_is_required(self):
         signup_form = SignUpForm({
-            'email': '',
-            'first_name': 'Sophie',
-            'second_name':'Carr'
+            'username':'',
+            'email':'sophie@test.com',
+            'first_name':'Sophie',
+            'last_name':'Carr',
+            'password1':'Thisisatest',
+            'password2':'Thisisatest',
             })
-        self.assertFalse(signup_form.is_valid(), msg="Form is valid")
+        self.assertFalse(signup_form.is_valid(), msg="username not provided, but form is valid")
+
+    def test_email_is_required(self):
+        signup_form = SignUpForm({
+            'username':'Sophie',
+            'email':'',
+            'first_name':'Sophie',
+            'last_name':'Carr',
+            'password1':'Thisisatest',
+            'password2':'Thisisatest',
+            })
+        self.assertFalse(signup_form.is_valid(), msg="email not provided, but form is valid")
+
+    def test_firstname_is_required(self):
+        signup_form = SignUpForm({
+            'username':'Sophie',
+            'email':'sophie@test.com',
+            'first_name':'',
+            'last_name':'Carr',
+            'password1':'Thisisatest',
+            'password2':'Thisisatest',
+            })
+        self.assertFalse(signup_form.is_valid(), msg="first name not provided, but form is valid")
+
+    def test_lastname_is_required(self):
+        signup_form = SignUpForm({
+            'username':'Sophie',
+            'email':'sophie@test.com',
+            'first_name':'Sophie',
+            'last_name':'',
+            'password1':'Thisisatest',
+            'password2':'Thisisatest',
+            })
+        self.assertFalse(signup_form.is_valid(), msg="last name not provided, but form is valid")
+
+    def test_password_is_required(self):
+        signup_form = SignUpForm({
+            'username':'',
+            'email':'sophie@test.com',
+            'first_name':'Sophie',
+            'last_name':'Carr',
+            'password1':'',
+            'password2':'',
+            })
+        self.assertFalse(signup_form.is_valid(), msg="password not provided, but form is valid")
+
+    def test_password_is_required(self):
+        signup_form = SignUpForm({
+            'username':'',
+            'email':'sophie@test.com',
+            'first_name':'Sophie',
+            'last_name':'Carr',
+            'password1':'Thisisatest',
+            'password2':'Thisisatest2',
+            })
+        self.assertFalse(signup_form.is_valid(), msg="passwords do not match, but form is valid")
