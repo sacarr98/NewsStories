@@ -17,8 +17,9 @@ class ProfilePicForm(forms.ModelForm):
         fields = ('profile_image', 'profile_bio', 'website_link', 'facebook_link', 'instagram_link')
 
 
+#News Form
 class NewsForm(forms.ModelForm):
-    title = forms.CharField(required=False,
+    title = forms.CharField(required=True,
         widget=forms.widgets.TextInput(
             attrs={
                 "placeholder":"News Title",
@@ -52,7 +53,7 @@ class NewsForm(forms.ModelForm):
 
 # Comment Form
 class CommentForm(forms.ModelForm):
-    comment_body = forms.CharField(required=False, 
+    comment_body = forms.CharField(required=True, 
         label="", max_length=100, 
         widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Add Comment'}))
     class Meta:

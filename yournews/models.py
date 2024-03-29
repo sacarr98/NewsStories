@@ -11,7 +11,7 @@ class News(models.Model):
     )
     title = models.CharField(max_length=100, null=True, blank=True)
     summary = models.CharField(max_length=200, null=True, blank=True)
-    body = models.CharField(max_length=600)
+    body = models.CharField(max_length=600, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name="news_like", blank=True)
 
