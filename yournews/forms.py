@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 # Profile picture form
 class ProfilePicForm(forms.ModelForm):
-    profile_image = forms.ImageField(label="Profile Picture")
+    #profile_image = forms.CloudinaryField(label="Profile Picture")#
     profile_bio = forms.CharField(label="Profile Bio", max_length=100, widget=forms.Textarea(attrs={'class':'form-control', 'placeholder':'Your Bio'}))
     website_link = forms.CharField(label="Website", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Your Website'}))
     facebook_link = forms.CharField(label="Facebook", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Your Facebook'}))

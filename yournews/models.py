@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from cloudinary.models import CloudinaryField
 
 
 # Post Model
@@ -52,7 +53,7 @@ class Profile(models.Model):
         blank=True)
     
     date_modified = models.DateTimeField(User, auto_now=True)
-    profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
+    profile_image = CloudinaryField('image', default='placeholder')
 
     profile_bio = models.CharField(max_length=100, null=True, blank=True)
     website_link = models.CharField(max_length=100, null=True, blank=True)
