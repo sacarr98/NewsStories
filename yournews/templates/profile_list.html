@@ -11,10 +11,10 @@
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            {% if profile.profile_image %}
-            <img src="{{ profile.profile_image.url }}" width="200" height="200" class="img-fluid rounded-start" alt="{{ profile.user.username }}">
+            {% if "placeholder" in profile.profile_image.url %}
+              <img src="{% static 'images/default_profile_pic.png' %}" width="100" height="100" alt="placeholder image">
             {% else %}
-            <img src="{% static 'images/default_profile_pic.png' %}" class="img-fluid rounded-start" alt="profile pic">
+              <img src=" {{ profile.profile_image.url }}" width="100" height="100" alt="{{ profile.user.username }}">
             {% endif %}
           </div>
           <div class="col-md-8">

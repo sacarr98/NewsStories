@@ -54,8 +54,10 @@
                 {% endif %}
             </div>
             <div class = "col-4">
-                {% if profile.profile_image %}
-                    <img src="{{ profile.profile_image.url }}" width="200" height="200" class="rounded-circle img-fluid">
+                {% if "placeholder" in profile.profile_image.url %}
+                    <img src="{% static 'images/default_profile_pic.png' %}" width ="200" height="200" class="rounded-circle img-fluid" alt="placeholder image">
+                {% else %}
+                    <img src=" {{ profile.profile_image.url }}" width ="200" height="200" class="rounded-circle img-fluid" alt="{{ profile.user.username }}">
                 {% endif %}
                 <br/><br/>
                 {% if profile.website_link %}

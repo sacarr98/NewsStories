@@ -42,10 +42,10 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-link navbar-brand">
             <a href="{% url 'profile' request.user.id %}">
-              {% if user.profile.profile_image %}
-                <img src="{{ user.profile.profile_image.url }}" width="35" class="rounded-circle">
+              {% if "placeholder" in user.profile.profile_image.url %}
+                <img src="{% static 'images/default_profile_pic.png' %}" width ="35" height="35" class="rounded-circle" alt="placeholder image">
               {% else %}
-                <img src="{% static 'images/default_profile_pic.png' %}" class="rounded-circle" width="35" alt="profile pic">
+                <img src=" {{ user.profile.profile_image.url }}" width ="35" height="35" class="rounded-circle" alt="{{ profile.user.username }}">
               {% endif %}
             </a>
           </li>
