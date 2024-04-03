@@ -59,6 +59,14 @@ I used JSHint to evaluate the JavaScript Code.
 
 It was found that one variable was undefined (username) resulting in errors on the signup page, this has since been resolved.
 
+### Python Automated Testing
+
+Python testing was used to test all forms used on the site. This can be found in the test_forms.py file.
+
+### Results
+
+All forms passed python testing.
+
 ## MANUAL TESTING
 
 ### Testing User Stories
@@ -67,21 +75,24 @@ It was found that one variable was undefined (username) resulting in errors on t
 
 | Goals | How are they achieved? |
 | :--- | :--- |
-| I want to improve my general knowledge. | Test Your General Knowledge provides a variety of questions on lots of different topics. |
-| I want the site to be responsive to my device. | I have developed the site with responsiveness in mind. |
-| I want the site to be easy to navigate. | The site is simple and easy to use with consistant styling throughout.  |
+| I can register an account so that I can follow other users and post. | Users can click 'sign-up' and create an accountt by filling in their username, email, and password. This enables them to write posts and follow other users. |
+| I can view a list of posts and select which post I want to view in full. | The home page is displayed to all users prior to log in, here they can view all posts and clicking on the open link opens a page where they can view the post in full. |
+| I can use a search bar to find content that interests me. | The site has two search bars in the nav bar, one that can be used to search for key words in posts and another that can be used to search for users.  |
 
 `Returning Visitors`
 
 |  Goals | How are they achieved? |
 | :--- | :--- |
-| I want to be able to track my progress. | Going forward I would like to add a user window that shows the users previous scores to monitor users activities and their progress. |
+| As a logged in user I can create a unique profifle page so other users can see more about me. | Users can click on their profile page and select 'update profile' here they can add a bio, profile picture, and links to their social media accounts. |
+| As a logged in user I can leave comments on posts so I can be involved in the conversation. | When a logged in user opens a post they can leave a comment below the post that will be identified as theirs, they can also delete comments they have posted. |
+| As a logged in user I can create, update, and delete posts so that I can share news with other users. | A logged in user can write their own posts, they can edit and delete posts they have written by clicking on the edit or delete buttons. |
+| As a logged in user I can follow other users so that I can view their posts. | A logged in user can select another user to follow or unfollow and view followed users posts. |
 
 `Frequent Visitors`
 
 | Goals | How are they achieved? |
 | :--- | :--- |
-| I want to be able to select questions on specific genres | I would like to add more questions that fall under specific topics e.g. geography/music/science so that users can improve their knowledge in areas of weakness.
+| As a frequent user I would like to be able to follow selected posts so that I can keep up to date with the comments | I would like to add functionality that enables users to follow specific posts and they can then view the posts they follow easily if there is a discussion going on in the comments they want to be part of.
 
 ### Full Testing
 
