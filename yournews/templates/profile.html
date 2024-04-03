@@ -6,58 +6,14 @@
 {% if profile %}
 
     <div class = "container text-center">
-        <div class = "row">
-            <div class = "col-8">
+        <div class = "row justify-content-center">
+            <div class = "col-6 col-md-4">
                 <h1>{{ profile.user.username }}'s Profile</h1>
                 <br/>
-                {% if news %}
-                    {% for newspost in news %}
-                        <div class="alert alert-primary" role="alert">
-                            <div class="containter">
-                                <div class="row">
-                                    <div class="col-2">
-                                        {% if "placeholder" in profile.profile_image.url %}
-                                            <img src="{% static 'images/default_profile_pic.png' %}" width ="50" height="50" class="rounded-circle" alt="placeholder image">
-                                        {% else %}
-                                            <img src=" {{ profile.profile_image.url }}" width ="50" height="50" class="rounded-circle" alt="{{ profile.user.username }}">
-                                        {% endif %}
-                                    </div>
-                                    <div class="col-8">
-                                        <h4>{{ newspost.title }}</h4>
-                                        {{ newspost.summary }}
-                                        <br/>
-                                        <small class="text-muted">
-                                        {{ newspost.created_at }} By @{{ newspost.user.username }}
-                                        &nbsp; &nbsp;
-                                        {{ newspost.number_of_likes }}
-                                        {% if user in newspost.likes.all %}
-                                            <a href="{% url 'news_like' newspost.id %}"><i class="fa-solid fa-heart"></i></a>
-                                        {% else %}
-                                            <a href="{% url 'news_like' newspost.id %}"><i class="fa fa-heart-o"></i></a>
-                                        {% endif %}
-                                        &nbsp; &nbsp;
-                                        <a href="{% url 'news_display' newspost.id %}"><i class="fa-solid fa-share" style="color:gray"></i></a>
-                                        {% if request.user.username == profile.user.username %}
-                                            &nbsp; &nbsp;
-                                            <a href="{% url 'delete_post' newspost.id %}"><i class="fa-solid fa-trash" style="color:gray"></i></a>
-                                        {% endif %}
-                                        {% if request.user.username == profile.user.username %}
-                                            &nbsp; &nbsp;
-                                            <a href="{% url 'edit_post' newspost.id %}"> <i class="fa-regular fa-pen-to-square" style="color:gray"></i></a>
-                                        {% endif %}
-                                        </small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><br/>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div class = "col-4">
                 {% if "placeholder" in profile.profile_image.url %}
-                    <img src="{% static 'images/default_profile_pic.png' %}" width ="200" height="200" class="rounded-circle img-fluid" alt="placeholder image">
+                    <img src="{% static 'images/default_profile_pic.png' %}" max-width ="50" height="50" class="rounded-circle img-fluid" alt="placeholder image">
                 {% else %}
-                    <img src=" {{ profile.profile_image.url }}" width ="200" height="200" class="rounded-circle img-fluid" alt="{{ profile.user.username }}">
+                    <img src=" {{ profile.profile_image.url }}" max-width ="50" height="50" class="rounded-circle img-fluid" alt="{{ profile.user.username }}">
                 {% endif %}
                 <br/><br/>
                 {% if profile.website_link %}
@@ -118,6 +74,52 @@
                 <!--Check for logged in user-->
                 {% if request.user.id == profile.user.id %}
                     <a href = "{% url 'update_user' %}" class = "btn btn-secondary">Update Your Profile</a>
+                {% endif %}
+                <br/><br/>
+            </div>
+            <br/><br/>
+            <div class = "col-12 col-md-8">
+                {% if news %}
+                    {% for newspost in news %}
+                        <div class="alert alert-primary" role="alert">
+                            <div class="containter">
+                                <div class="row">
+                                    <div class="col-2">
+                                        {% if "placeholder" in profile.profile_image.url %}
+                                            <img src="{% static 'images/default_profile_pic.png' %}" width ="50" height="50" class="rounded-circle" alt="placeholder image">
+                                        {% else %}
+                                            <img src=" {{ profile.profile_image.url }}" width ="50" height="50" class="rounded-circle" alt="{{ profile.user.username }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-8">
+                                        <h4>{{ newspost.title }}</h4>
+                                        {{ newspost.summary }}
+                                        <br/>
+                                        <small class="text-muted">
+                                        {{ newspost.created_at }} By @{{ newspost.user.username }}
+                                        &nbsp; &nbsp;
+                                        {{ newspost.number_of_likes }}
+                                        {% if user in newspost.likes.all %}
+                                            <a href="{% url 'news_like' newspost.id %}"><i class="fa-solid fa-heart"></i></a>
+                                        {% else %}
+                                            <a href="{% url 'news_like' newspost.id %}"><i class="fa fa-heart-o"></i></a>
+                                        {% endif %}
+                                        &nbsp; &nbsp;
+                                        <a href="{% url 'news_display' newspost.id %}"><i class="fa-solid fa-share" style="color:gray"></i></a>
+                                        {% if request.user.username == profile.user.username %}
+                                            &nbsp; &nbsp;
+                                            <a href="{% url 'delete_post' newspost.id %}"><i class="fa-solid fa-trash" style="color:gray"></i></a>
+                                        {% endif %}
+                                        {% if request.user.username == profile.user.username %}
+                                            &nbsp; &nbsp;
+                                            <a href="{% url 'edit_post' newspost.id %}"> <i class="fa-regular fa-pen-to-square" style="color:gray"></i></a>
+                                        {% endif %}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br/>
+                    {% endfor %}
                 {% endif %}
             </div>
         </div>
