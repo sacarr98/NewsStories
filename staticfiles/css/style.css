@@ -1,0 +1,13 @@
+h4 {
+    font-weight: 50;
+}
+
+p {
+    font-weight: 50;
+}
+
+#logo {
+    font-size: 200%;
+    color: blue;
+    text-shadow: 2px 2px black;
+}

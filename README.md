@@ -74,9 +74,11 @@ The only imagery used on the site is uploaded by the users themselves, this incl
 
 ### Wireframes
 
-<img src="assets/images/index_wireframe.PNG" alt="Wire fame of index page" title="Index page">
-<img src="assets/images/content_wireframe.PNG" alt="Wire frame of content pages" title="Practices pages">
-<img src="assets/images/signupform_wireframe.PNG" alt="wire frame of sign-up page" title="Sign-up page">
+<img src="static/images/home_page_wireframe.PNG" alt="Wire fame of home page" title="Home page">
+<img src="static/images/post_detail_wireframe.PNG" alt="Wire frame of post detail page" title="Post detail page">
+<img src="static/images/post_form_wireframe.PNG" alt="wire frame of create post and sign-up page" title="Create post and sign-up page">
+<img src="static/images/profile_page_wireframe.PNG" alt="Wire fame of profile page" title="profile page">
+<img src="static/images/search_page_wireframe.PNG" alt="Wire fame of search pages" title="Search pages">
 
 ## Features
 
