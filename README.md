@@ -6,9 +6,10 @@ The site has a large target audience as the ability to follow other users means 
 
 
 Below you can see the site on different screen sizes. Taken from [Am I responsive](https://amiresponsive.co.uk/).
-<img src="assets/images/deployedsite.PNG" alt="Breathe website on different screen sizes" title="Breathe website on different screen sizes>
+<img src="assets/images/deployedsite.PNG" alt="News Stories website on different screen sizes" title="News Stories website on different screen sizes>
 
-The live site can be found [here](https://sacarr98.github.io/Portfolio_1/)
+The live site can be found [here](https://sacarr98.github.io/Portfolio_1/) and [here](https://sacarr98-newsstories-3bi4f6u4rp4.ws-eu110.gitpod.io/)
+
 
 ---
 
@@ -70,15 +71,15 @@ We chose Josefin sans for main headings and Ysabeau SC for everything else. We f
 
 ### Imagery
 
-The only imagery used on the site is uploaded by the users themselves, this includes profile pictures the users choose and pictures included to add value to the news stories.
+The primary imagery used on the site is uploaded by the users themselves, this includes profile pictures the users choose and pictures included to add value to the news stories. The only pre-uploaded imagery is the default profile picture, that is the image given to new users that have not uploaded their own profile picture yet this can be found [here](https://images.yourstory.com/production/document_image/mystoryimage/uploads/production/app_file/content/7869/e10f46dcca)
 
 ### Wireframes
 
-<img src="static/images/home_page_wireframe.png" alt="Wire fame of home page" title="Home page">
-<img src="static/images/post_detail_wireframe.png" alt="Wire frame of post detail page" title="Post detail page">
-<img src="static/images/post_form_wireframe.png" alt="wire frame of create post and sign-up page" title="Create post and sign-up page">
-<img src="static/images/profile_page_wireframe.png" alt="Wire fame of profile page" title="profile page">
-<img src="static/images/search_page_wireframe.png" alt="Wire fame of search pages" title="Search pages">
+<img src="assets/readme_images/home_page_wireframe.png" alt="Wire fame of home page" title="Home page">
+<img src="assets/readme_images/post_detail_wireframe.png" alt="Wire frame of post detail page" title="Post detail page">
+<img src="assets/readme_images/post_form_page.png" alt="wire frame of create post and sign-up page" title="Create post and sign-up page">
+<img src="assets/readme_images/profile_page_wireframe.png" alt="Wire fame of profile page" title="profile page">
+<img src="assets/readme_images/search_page_wireframe.png" alt="Wire fame of search pages" title="Search pages">
 
 ## Features
 
@@ -104,7 +105,7 @@ The sign-up page follows conventions users will be familiar with, and makes use 
 
 ### Future Implementations
 
-In future I would change the way images are uploaded as for a large number of users uploading images and adding them to the static file will slow down the performance of the site. I would also like to implement a way for users to share other users news stories on their profile adding their comments around it. 
+In future I would like users to be able to share other users posts to their profile, if they think stories are of great interest and should reach a larger audience.
 
 ### Accessibility
 

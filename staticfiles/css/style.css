@@ -8,6 +8,12 @@ p {
 
 #logo {
     font-size: 200%;
-    color: blue;
-    text-shadow: 2px 2px black;
+    font-weight: 150%;
+    color: black;
+    text-shadow: 2px 2px grey;
+}
+
+#newstitle {
+    text-decoration: none;
+    color: rgb(34, 29, 127)
 }

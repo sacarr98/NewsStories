@@ -111,23 +111,21 @@ Each device tested the site using the following browsers:
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| `Game Area` |
+| `nav-bar` |
 |  |  |  |  |  |
-| Submit button | When clicked the user answer will be submitted and next question loaded. | Button clicked | Answer checked, next question loads | Pass |
-| User answer checkbox | When clicked box will be checked and . | Clicked box | Answer checked | Pass |
-| `Footer` |
+| page links | When clicked the user will be redirected to selected pages. | All links clicked | Expected page loads | Pass |
+| `Home Page` |
 |  |  |  |  |  |
-| Quiz Home Page Link | When clicked the user will be redirected to the home page.| Clicked link | Redirected to the home page. | Pass |
-| Feedback Link | When clicked the user will be redirected to the feedback page.| Clicked link | Redirected to the home page. | Pass |
-| Signup Link | When clicked the user will be redirected to the signup page. | Clicked link | Redirected to the mind page | Pass |
-| Submit button | When clicked the user answer will be submitted and next question loaded. | Button clicked | Answer checked, next question loads |
-| `Signup Page` |
+| Post-detail Link | When clicked the user will be redirected to the post-detail page.| Clicked link | Redirected to the home page. | Pass |
+| Edit Link | When clicked the user will be redirected to the edit post.| Clicked link | Redirected to the home page. | Pass |
+| Like button | When clicked heart will change colour and like tally will change in accordance. | Clicked button | Post liked | Pass |
+| Delete button | When clicked the user will delete their post, and a message will alert the user. | Button clicked | Post deleted, alert recieved |
+| `Post-detail Page` |
 | | | | | | |
-| Username taken | Cannot have matching username with other user | Tried to submit form with matching username | Tooltip lets user know this value is taken | Pass |
-| Submit | Should clear field and display acknowledgement message | Created new user and submitted form | field cleared and message appears | Pass |
-| `Feedback Page` |
+| Comment form submit button | When submit button clicked, comment will be posted and alert message given to user | Comment created and submit button clicked. | Comment posted and alert message recieved (automated testing has been carried out on this form also) | Pass |
+| `Edit post Page` |
 | | | | | | |
-| Submit | Should clear field and display acknowledgement message | Created new user and submitted form | field cleared and message appears | Pass |
+| Submit button | user should be redirected to home page with an alert informing the user the post has been edited | Edited an existing post. | redirected to the home page and an alert message appears | Pass |
  - - -
 
 ## BUGS
