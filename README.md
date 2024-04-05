@@ -178,11 +178,11 @@ The code was written by myself with some parts being taken from the blog project
 
 ### Content
 
-The content for the site was created by myself, with the yoga video being embedded from Youtube, and through carrying out research into mindfulness techniques.
+The sample posts of news stories were taken from bbc news.
 
 ###  Media
 
-- <a href="https://www.pexels.com/photo/sea-water-forming-seafoams-4321194/">Index page cover image</a>
+<a href="https://images.yourstory.com/production/document_image/mystoryimage/uploads/production/app_file/content/7869/e10f46dcca">Default profile picture</a>
 
   
 ###  Acknowledgments

@@ -126,6 +126,12 @@ Each device tested the site using the following browsers:
 | `Edit post Page` |
 | | | | | | |
 | Submit button | user should be redirected to home page with an alert informing the user the post has been edited | Edited an existing post. | redirected to the home page and an alert message appears | Pass |
+| `Profile list Page` |
+| | | | | | |
+| Profile linke | user should be redirected to relevent profile's page. | Clicked on user profile. | redirected to relevent user page | Pass |
+| `Search Page` |
+| | | | | | |
+| Search bar | typing in the search bar should return results matching search criteria | Searched for relevent word. | matching results appear | Pass |
  - - -
 
 ## BUGS
