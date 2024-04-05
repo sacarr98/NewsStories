@@ -74,11 +74,11 @@ The only imagery used on the site is uploaded by the users themselves, this incl
 
 ### Wireframes
 
-<img src="static/images/home_page_wireframe.PNG" alt="Wire fame of home page" title="Home page">
-<img src="static/images/post_detail_wireframe.PNG" alt="Wire frame of post detail page" title="Post detail page">
-<img src="static/images/post_form_wireframe.PNG" alt="wire frame of create post and sign-up page" title="Create post and sign-up page">
-<img src="static/images/profile_page_wireframe.PNG" alt="Wire fame of profile page" title="profile page">
-<img src="static/images/search_page_wireframe.PNG" alt="Wire fame of search pages" title="Search pages">
+<img src="static/images/home_page_wireframe.png" alt="Wire fame of home page" title="Home page">
+<img src="static/images/post_detail_wireframe.png" alt="Wire frame of post detail page" title="Post detail page">
+<img src="static/images/post_form_wireframe.png" alt="wire frame of create post and sign-up page" title="Create post and sign-up page">
+<img src="static/images/profile_page_wireframe.png" alt="Wire fame of profile page" title="profile page">
+<img src="static/images/search_page_wireframe.png" alt="Wire fame of search pages" title="Search pages">
 
 ## Features
 
@@ -87,8 +87,6 @@ The website comprised of 9 pages, the 'home' page, the 'create news' page, the '
 ### General features on each page
 
 All pages have the same nav-bar at the top allowing users to easily navigate through the site, this includes a drop-down 'search' tab allowing users to search by username or post content.
-
-<img src="assets/images/dropdown_capture.PNG" alt="screenshot of drop-down menu" title="Drop-down menu">
 
 The home page features a list of all the posts (just titles and summaries), ordered by the most recent to oldest. Clicking on the open icon takes users to the post-detail page where they can read full news stories. Cliking on the heart icon likes a news story, and clicking on the bin icon allows users to delete news stories they have written. Clicking on the edit icon redirects users to the 'edit-post' page if the user created that post. On the left handside users can write their own news stories, but this is only visible on large screen sizes to avoid the site being too cluttered and difficult to use on smaller screens.
 
@@ -113,7 +111,7 @@ In future I would change the way images are uploaded as for a large number of us
 We have actively tried to ensure our website is accessible friendly as possible, we achieved this by:
 - Using semantic HTML
 - Ensuring sufficient colour contrast throughout the site and using easily readable fonts
-- Providing information for screen readers where icons were used in place of text, for example for our social media icons in the footer
+- Providing information for screen readers where icons were used in place of text
 
 ## Technologies Used
 

@@ -17,7 +17,7 @@
                                 {% endif %}
                             </div>
                             <div class="col-8">
-                                <h4>{{ newspost.title }}</h4>
+                                <a href="{% url 'news_display' newspost.id %}" id="newstitle"><h4>{{ newspost.title }}</h4></a>
                                 <p>{{ newspost.summary }}</p>
                                 <small class="text-muted">
                                 {{ newspost.created_at }} By @{{ newspost.user.username }}
