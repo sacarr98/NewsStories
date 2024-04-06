@@ -28,22 +28,13 @@ I have analysed each page using google chrome developer tools to ensure the resp
 
 ## AUTOMATED TESTING
 
-### W3C Validator
-
-[W3C](https://validator.w3.org/) was used to validate the HTML on all pages of the website. It was also used to validate the CSS.
-
-* [index.html] - Passed, no errors or warnings to show.
-* [signup.html] - Passed, no errors or warnings to show.
-* [feedback.html] - Passed, no errors or warnings to show.
-* [style.css] - Passed, no errors or warnings to show.
-
 ### Lighthouse
 
 I used Lighthouse within the Chrome Developer Tools to test the performance, accessibility, best practices and SEO of the website.
 
 ### Results
 
-All pages achieved a minimum of 92 for best practices, and an average of 88 for performance.
+All pages achieved a minimum of 97 for performance.
 
 ![home.html](assets/readme_images/home_page_lighthouse.png)
 
