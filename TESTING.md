@@ -1,6 +1,6 @@
 # Your News -  Testing
 
-![Your News shown on a variety of screen sizes](assets/images/Portfolio2_depoloyed_site.png)
+![Your News shown on a variety of screen sizes](assets/readme_images/amiresponsive_image.png)
 
 Visit the deployed site: [Your News](https://sacarr98.github.io/Portfolio_Two/)
 - - -
