@@ -2,7 +2,7 @@
 
 ![Your News shown on a variety of screen sizes](assets/readme_images/amiresponsive_image.png)
 
-Visit the deployed site: [Your News](https://sacarr98.github.io/Portfolio_Two/)
+Visit the deployed site: [Your News](https://portfolio-four-news-9a11796b1ee3.herokuapp.com/)
 - - -
 
 ## CONTENTS

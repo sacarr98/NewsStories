@@ -8,7 +8,7 @@ The site has a large target audience as the ability to follow other users means 
 Below you can see the site on different screen sizes. Taken from [Am I responsive](https://amiresponsive.co.uk/).
 <img src="assets/readme_images/amiresponsive_image.png" alt="News Stories website on different screen sizes" title="News Stories website on different screen sizes>
 
-The live site can be found [here](https://sacarr98.github.io/Portfolio_1/) and [here](https://sacarr98-newsstories-3bi4f6u4rp4.ws-eu110.gitpod.io/)
+The live site can be found [here](https://portfolio-four-news-9a11796b1ee3.herokuapp.com/) and [here](https://sacarr98-newsstories-3bi4f6u4rp4.ws-eu110.gitpod.io/)
 
 
 ---
