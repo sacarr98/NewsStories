@@ -45,11 +45,25 @@ I used Lighthouse within the Chrome Developer Tools to test the performance, acc
 
 All pages achieved a minimum of 92 for best practices, and an average of 88 for performance.
 
-![index.html](assets/images/Quiz_home_lighthouse.PNG)
+![home.html](assets/readme_images/home_page_lighthouse.png)
 
-![signup.html](assets/images/Signup_page_lighthouse.PNG)
+![edit_post.html](assets/readme_images/edit_post_lighthouse.png)
 
-![feedback.html](assets/images/feedback_lighthouse.PNG)
+![create_news.html](assets/readme_images/create_post_lighthouse.png)
+
+![login.html](assets/readme_images/login_lighthouse.png)
+
+![news_display.html](assets/readme_images/post_detail_lighthouse.png)
+
+![profile_list.html](assets/readme_images/profile_list_lighthouse.png)
+
+![profile.html](assets/readme_images/profile_lighthouse.png)
+
+![register.html](assets/readme_images/register_lighthouse.png)
+
+![search.html](assets/readme_images/search_lighthouse.png)
+
+![update_user.html](assets/readme_images/update_profile_lighthouse.png)
 
 ### JSHint
 
@@ -132,6 +146,10 @@ Each device tested the site using the following browsers:
 | `Search Page` |
 | | | | | | |
 | Search bar | typing in the search bar should return results matching search criteria | Searched for relevent word. | matching results appear | Pass |
+| Post-detail Link | When clicked the user will be redirected to the post-detail page.| Clicked link | Redirected to the home page. | Pass |
+| Edit Link | When clicked the user will be redirected to the edit post.| Clicked link | Redirected to the home page. | Pass |
+| Like button | When clicked heart will change colour and like tally will change in accordance. | Clicked button | Post liked | Pass |
+| Delete button | When clicked the user will delete their post, and a message will alert the user. | Button clicked | Post deleted, alert recieved |
  - - -
 
 ## BUGS
