@@ -65,9 +65,7 @@ We wanted to have a colour scheme that was not too bright as users may spend an 
 
 ### Typography
 
-Google Fonts was used to import the chosen fonts for this site.
-
-We chose Josefin sans for main headings and Ysabeau SC for everything else. We felt these were complimentary fonts, easy to read and in keeping with the peaceful vibe we wanted the website to have.
+A simple sans-serif was used for all the fonts as we felt this was user friendly. It is easy to read, and will load quickly on all devices.
 
 ### Imagery
 
@@ -122,7 +120,6 @@ HTML, CSS, Javascript, Python
 
 ### Frameworks, Libraries & Programs Used
 
-Balsamiq - for wireframes
 Git - for version control
 Github - to save and store files 
 Google Fonts - to import all fonts
@@ -131,22 +128,20 @@ Google Dev Tools - to troubleshoot and test features
 PostgresSQL - open source database
 Bootstrap - for CSS styling
 Django - for Python
+Cloudinary - for user uploaded images
 Heroku - for deployment
 
 ## Deployment & Local Development
 
 ### Deployment
 
-The site is deployed using GitHub Pages. Visit the deployed site here. To deploy using GitHub pages:
+The site is deployed using Heroku. To Deploy with heroku:
 
-Login or Sign Up to GitHub.
-Open the project repository.
-Click on "Settings" on the navigation bar under the repository title.
-Click on "Pages" in the left hand navigation panel.
-Under "Source", choose which branch to deploy. This should be Main for newer repositories (older repositories may still use Master).
-Choose which folder to deploy from, usually "/root".
-Click "Save", then wait for it to be deployed. It can take some time for the page to be fully deployed.
-Your URL will be displayed above "Source".
+- Log in to Github
+- Duplicate the repository
+- Log in to Heroku and create a new project
+- Select Github as the deployment method and connect to the repository
+- Manually deploy from the main branch
 
 ### Local Development
 

@@ -65,14 +65,6 @@ All pages achieved a minimum of 92 for best practices, and an average of 88 for 
 
 ![update_user.html](assets/readme_images/update_profile_lighthouse.png)
 
-### JSHint
-
-I used JSHint to evaluate the JavaScript Code.
-
-### Results
-
-It was found that one variable was undefined (username) resulting in errors on the signup page, this has since been resolved.
-
 ### Python Automated Testing
 
 Python testing was used to test all forms used on the site. This can be found in the test_forms.py file.
@@ -84,6 +76,8 @@ All forms passed python testing.
 ## MANUAL TESTING
 
 ### Testing User Stories
+
+All user stories were documented on Github as 'issues' these were allocated to the project 'News Stories' and divided into two iterations. Items were moved from backlog, to in progress, to in review, to done as the project progressed. This helped to ensure that the website met all the requirements set out at the start of the project.
 
 `First Time Visitors`
 
@@ -107,6 +101,20 @@ All forms passed python testing.
 | Goals | How are they achieved? |
 | :--- | :--- |
 | As a frequent user I would like to be able to follow selected posts so that I can keep up to date with the comments | I would like to add functionality that enables users to follow specific posts and they can then view the posts they follow easily if there is a discussion going on in the comments they want to be part of.
+
+### Manual Javascript Testing
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| `display of profile picture` |
+|  |  |  |  |  |
+| 'if' statement for display of default or custom picture | If user has an uploaded profile picture that should always be displayed, if not the default picture will display. | Uploaded then deleted profile picture. | Expected image loads | Pass |
+| `display posts` |
+|  |  |  |  |  |
+| 'for' loop used to display all user posts in the order they were created. | if a post is made it should appear at the top of the post list, posts displayed should match those in the admin area. | Created a post, and checked posts in admin area. | All posts present and ordered correctly | Pass |
+| `profile permissions` |
+|  |  |  |  |  |
+| 'if' statement used to check post belongs to user. | if a post belongs to the user the user can delete or edit the post | Created a post, and viewed other users posts. | Edit and delete options present on my post only | Pass |
 
 ### Full Testing
 
@@ -158,9 +166,8 @@ Each device tested the site using the following browsers:
 
 | No | Bug | How I solved the issue |
 | :--- | :--- | :--- |
-| 1 | The initial banner text was clear on some pages but difficult to read against the background on others | By adding a shadow the text had better readability  |
-| 2 | When adding media queries to my index page the footer was sitting on top of the text content | I realised this was due to the text content being larger than the div container, by resizing the div container I solved this |
-| 3 | Initially when moving through pages on the navigation bar the underline did not move to the relvent page | By ensuring all pages were set to "active" I solved this issue. |
+| 1 | The initial profile images were not sizing dependent on screen size | made the image sizes fluid  |
+| 2 | New users posts were not automatically visible on their profile | Made users automatically follow themselves on creating a profile so they could view their own posts |
 
 
 ### Solved Bugs

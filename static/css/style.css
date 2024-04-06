@@ -8,6 +8,7 @@ p {
 
 #logo {
     font-size: 200%;
+    font-family: sans-serif;
     font-weight: 150%;
     color: black;
     text-shadow: 2px 2px grey;
@@ -15,5 +16,14 @@ p {
 
 #newstitle {
     text-decoration: none;
-    color: rgb(34, 29, 127)
+    color: rgb(34, 29, 127);
+}
+
+#postlinks {
+    color: grey;
+}
+
+#followers {
+    text-decoration: none;
+    color: black;
 }
